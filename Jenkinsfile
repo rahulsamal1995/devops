@@ -4,13 +4,13 @@ pipeline{
 
     
     stages{
-        stage('build'){
+        stage('build') {
             steps{
-               script{
+               script {
                   //Ensure Maven in the PATH
-                  bat 'mvn -v  // Verify Maven installation
-                  bat 'mvn clean install' // Run the Maven build
-                    }
+                      bat 'mvn -v'  // Verify Maven installation
+                      bat 'mvn clean install' // Run the Maven build
+                }
             }
         }
         stage('testing') {
