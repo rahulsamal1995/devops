@@ -1,10 +1,14 @@
-Use an official OpenJDK runtime as a parent image
+# Use an official OpenJDK runtime as a parent image
 FROM openjdk:17-jdk-alpine
-Set the working directory in the container
+
+# Set the working directory in the container
 WORKDIR /app
-Copy the JAR file from the host machine to the container
-COPY target/*.jar app.jar
-Expose the port that your application will run on
+
+# Copy the current directory contents into the container at /app
+COPY . /app
+
+# Make port 8080 available to the world outside this container
 EXPOSE 8080
-Command to run the application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+
+# Run the specified command within the container
+CMD ["java", "-jar", "your-app.jar"]
